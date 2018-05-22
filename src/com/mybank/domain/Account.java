@@ -45,7 +45,7 @@ public class Account {
      * @param amt a positive amount of money
      * @return 
      */
-    public boolean withdraw(double amt) {
+    public boolean withdraw (double amt) throws Exception {
         if (amt <= balance) {
             balance -= amt;
             return true;
