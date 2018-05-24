@@ -20,8 +20,8 @@ public class BankTest {
 
     Bank bank = Bank.getBank();
 
-    Customer firstCustomer = new Customer("John Doe");
-    Customer secondCustomer = new Customer("Jane Doe");
+    Customer firstCustomer = new Customer("John", "Doe");
+    Customer secondCustomer = new Customer("Jane", "Doe");
 
     public BankTest() {
 
@@ -81,7 +81,7 @@ public class BankTest {
     @Test
     public void testAddCustomer() {
         System.out.println("addCustomer");
-        Customer newCustomer = new Customer("John Cena");
+        Customer newCustomer = new Customer("John", "Cena");
         Bank instance = bank;
         instance.addCustomer(newCustomer);
         Customer expResult = newCustomer;

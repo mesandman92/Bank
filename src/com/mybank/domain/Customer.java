@@ -1,10 +1,13 @@
 package com.mybank.domain;
 
+import java.util.ArrayList;
+
 public class Customer {
 
-    private Account[] accounts;
+    private ArrayList<Account> accounts;
 
-    private String fullName;
+    private String firstName;
+    private String lastName;
 
     private int customerNumber;
 
@@ -12,16 +15,17 @@ public class Customer {
 
     private int numOfAccounts;
 
-    public Customer(String fullName) {
-        accounts = new Account[10];
-        this.fullName = fullName;
+    public Customer(String fullName, String lastName) {
+        accounts = new ArrayList<>();
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.customerNumber = customerNumberBase++;
         this.numOfAccounts = 0;
     }
 
     @Override
     public String toString() {
-        String s = "Customer:" + "fullName=" + fullName + ", customerNumber=" + customerNumber + ", numOfAccounts=" + numOfAccounts + '}';
+        String s = "Customer:" + firstName + ","+ lastName + ", customerNumber=" + customerNumber + ", numOfAccounts=" + numOfAccounts + '}';
         for (int i = 0; i < this.numOfAccounts; i++) {
             Account acc = getAccount(i);
             if (acc instanceof SavingsAccount) {
@@ -36,14 +40,14 @@ public class Customer {
     }
 
     public Account getAccount(int accountNumber) {
-        if (accountNumber <= accounts.length && numOfAccounts != 0) {
-            return accounts[accountNumber];
+        if (accountNumber <= accounts.size() && numOfAccounts != 0) {
+            return accounts.get(accountNumber);
         }
         return null;
     }
 
     public void addAccount(Account acc) {
-        accounts[numOfAccounts] = acc;
+        accounts.add(acc);
         numOfAccounts++;
     }
 }

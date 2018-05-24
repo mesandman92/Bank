@@ -1,8 +1,10 @@
 package com.mybank.domain;
 
+import java.util.ArrayList;
+
 public class Bank {
 
-    private Customer[] customers = new Customer[1000];
+    private ArrayList<Customer> customers = new ArrayList<>();
     
     private int numOfClients = 0;
     
@@ -17,14 +19,14 @@ public class Bank {
     }
 
     public Customer getCustomer(int customerNumber) {
-        if (customerNumber < customers.length) {
-            return customers[customerNumber];
+        if (customerNumber < customers.size()) {
+            return customers.get(customerNumber);
         }
         return null;
     }
 
     public void addCustomer(Customer newCustomer) {
-        customers[numOfClients] = newCustomer;
+        customers.add(newCustomer);
         numOfClients++;
     }
 
