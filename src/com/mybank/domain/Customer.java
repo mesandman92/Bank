@@ -50,4 +50,18 @@ public class Customer {
         accounts.add(acc);
         numOfAccounts++;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getNumOfAccounts() {
+        return numOfAccounts;
+    }
+    
+    
 }
