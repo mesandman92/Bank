@@ -8,6 +8,7 @@ package com.mybank.data;
 import com.mybank.domain.Bank;
 import com.mybank.domain.Customer;
 import com.mybank.domain.SavingsAccount;
+import com.mybank.domain.CheckingAccount;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class DataSource {
             customer = bank.getCustomer(i);
 
             int numOfAccounts = input.nextInt();
-            while (numOfAccounts > 0) {
+            while (numOfAccounts-- > 0) {
                 char accountType = input.next().charAt(0);
                 switch (accountType) {
                     case 'S': {
@@ -49,7 +50,7 @@ public class DataSource {
                     case 'C': {
                         float initBalance = input.nextFloat();
                         float overdraftAmount = input.nextFloat();
-                        customer.addAccount(new SavingsAccount(initBalance, overdraftAmount));
+                        customer.addAccount(new CheckingAccount(initBalance, overdraftAmount));
                         break;                        
                     }
                 }
