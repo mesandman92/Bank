@@ -15,7 +15,7 @@ public class Customer {
 
     private int numOfAccounts;
 
-    public Customer(String fullName, String lastName) {
+    public Customer(String firstName, String lastName) {
         accounts = new ArrayList<>();
         this.firstName = firstName;
         this.lastName = lastName;
