@@ -6,6 +6,7 @@
 package com.mybank.reporting;
 
 import com.mybank.data.DataSource;
+import com.mybank.domain.AccumulateSavingsBatch;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -36,6 +37,11 @@ public class TestReport {
 
                 // Run the customer report
                 CustomerReport report = new CustomerReport();
+                report.generateReport();
+                
+                AccumulateSavingsBatch jobRate = new AccumulateSavingsBatch();
+                jobRate.doBatch();
+                
                 report.generateReport();
 
             } catch (IOException ioe) {
