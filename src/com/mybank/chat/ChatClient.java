@@ -18,10 +18,10 @@ import java.io.*;
  */
 public class ChatClient {
 
-    private JTextArea output;
-    private JTextField input;
-    private JButton sendButton;
-    private JButton quitButton;
+    private final JTextArea output;
+    private final JTextField input;
+    private final JButton sendButton;
+    private final JButton quitButton;
 
     private Socket connection = null;
     private BufferedReader serverIn = null;
@@ -39,7 +39,7 @@ public class ChatClient {
             serverOut = new PrintStream(connection.getOutputStream());
             Thread t = new Thread(new RemoteReader());
             t.start();
-        } catch (Exception e) {
+        } catch (IOException | NumberFormatException e) {
             System.err.println("ERROR: unable to connect to server!");
             e.printStackTrace();
         }
@@ -97,7 +97,7 @@ public class ChatClient {
                     String nextLine =serverIn.readLine();
                     output.append(nextLine+"\n");
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.err.println("ERROR: can't read from the server!");
                 e.printStackTrace();
             }
